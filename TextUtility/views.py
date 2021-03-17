@@ -1,12 +1,10 @@
 # I have created this file here. -sk
 
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 def index(request):
-#    param = {'name':'sk', 'place':'India'}
     return render(request, 'index.html')
-    #return HttpResponse('hello')
 
 def analyze(request):
     #Get the text
@@ -61,34 +59,5 @@ def analyze(request):
         params = {'purpose': purpose, 'analyzed_text' : djtext}
         return render(request, 'analyze.html', params)
     else:
-        return HttpResponse("error!")
-
-
-'''
-def about(request):
-    return HttpResponse('about page')
-
-#remove punctuation
-def removepunc(request):    
-    #Get the text
-    djtext = request.GET.get('text', 'default')
-    print(djtext)
-    #Analyze the text
-    return HttpResponse("Remove punctuation <a href='/'>HOME</a>")
-
-#capitalize first
-def capfirst(request):
-    return HttpResponse("capitalize first <a href='/'>HOME</a>")
-
-#newline remove
-def newlineremove(request):
-    return HttpResponse("newline remove <a href='/'>HOME</a>")
-
-#char count
-def charcount(request):
-    return HttpResponse("char count <a href='/'>HOME</a>")
-
-#space remove
-def spaceremove(request):
-    return HttpResponse("space remove <a href='/'>HOME</a>")
-'''
+        #return HttpResponse("error!")
+        raise Http404("Error! Please Select an option")
