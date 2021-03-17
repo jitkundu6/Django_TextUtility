@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+ <title> Index Page </title>
+{% endblock %}
+
+
+{% block body %}
+
+<div class ="container">
+    <br><br>
+<h1 align="center"><u> Welcome to Text Utility </u> </h1> <br>
+
+<form action="/analyze/" method="post">
+  {% csrf_token %}
+  <div class="form-group row">
+    <label for="textarea" class="col-sm-1 col-form-label">Text:</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="textarea" name="text" placeholder="Enter Your Text Here">
+      </textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-1">Checkbox</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+
+          <input type="checkbox" name="removepunc"> Remove Punctuations <br>
+        <input type="checkbox" name="capfirst"> Capitalize First <br>
+        <input type="checkbox" name="uppercase"> Capitalize All <br>
+        <input type="checkbox" name="newlineremove"> Newline Remove <br>
+        <input type="checkbox" name="charcount"> Character Count <br>
+        <input type="checkbox" name="spaceremove" checked> Extra Space Remove <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Analyze Text</button>
+    </div>
+  </div>
+
+</form>
+</div>
+
+{% endblock %}
+

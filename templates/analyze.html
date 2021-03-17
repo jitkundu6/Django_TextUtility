@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head %}
+ <title> Analyze </title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container" align="center">
+    <h1> Your analyzed Text - {{ purpose }} </h1> <br>
+    <p>
+    <pre> {{analyzed_text}} </pre>
+    </p>
+</div>
+{% endblock %}
+
